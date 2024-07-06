@@ -56,7 +56,7 @@
       </li>
       <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            Dini Mufidah
+            user/admin
         </a>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -221,25 +221,25 @@
             @auth
               @if (Auth::user()->role == User::ROLE_ADMIN)
               <li class="nav-item">
-                <a href="{{ url('admin/jenis_kendaraan')}}" class="nav-link">
+                <a href="{{ url('admin/jenis_kendaraan') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>jenis kendaraan</p>
                 </a>
               </li>
                 @endif
               @endauth
-              <li class="nav-item">
-                <a href="{{ url('admin/jenis_kendaraan') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jenis kendaraan</p>
-                </a>
-              </li>
+
+              @auth
+              @if (Auth::user()->role == User::ROLE_ADMIN)
               <li class="nav-item">
                 <a href="{{ url('admin/armada') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>armada</p>
                 </a>
               </li>
+              @endif
+              @endauth
+              
               <li class="nav-item">
                 <a href="{{ url('admin/peminjaman') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -298,7 +298,9 @@
           </div>
         </div>
         <div class="card-body">
-          Selamat datang di Rental Mobil Nurul Fikri !
+         <h1> Selamat datang di Rental Mobil Nurul Fikri !</h1>
+          <br>
+          -Created By : kelompok 6-
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

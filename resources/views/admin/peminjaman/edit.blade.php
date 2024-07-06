@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="card-body">
-        <form class="forms-sample" action="{{ url ('admin/peminjaman/update', $peminjaman->id) }}" method="POST">
+        <form class="forms-sample" action="{{ url('admin/peminjaman/update', $peminjaman->id) }}" method="POST">
           @csrf
           @method('put')
           <div class="form-group row">
@@ -84,23 +84,23 @@
               </div>
           </div>
           <div class="form-group row">
-              <label for="selesai" class="col-sm-4 col-form-label">selesai</label>
-              <div class="col-sm-8">
-                  <input type="date" class="form-control" id="selesai" name="selesai"
-                      placeholder="Masukkan tanggal selesai" value="{{ $peminjaman->selesai }}">
-              </div>
-          </div>
+                <label for="selesai" class="col-sm-4 col-form-label">selesai</label>
+                <div class="col-sm-8">
+                    <input type="date" class="form-control" id="selesai" name="selesai"
+                        placeholder="tanggal selesai pinjam" value="{{ $peminjaman->selesai }}">
+                </div>
+            </div>
           <div class="form-group row">
-              <label for="biaya" class="col-sm-4 col-form-label">id jenis kendaraan</label>
+              <label for="biaya" class="col-sm-4 col-form-label">biaya</label>
               <div class="col-sm-8">
-                  <input type="text" class="form-control" id="biaya" name="biaya"
+                  <input type="number" class="form-control" id="biaya" name="biaya"
                       placeholder="Masukkan jumlah biaya" value="{{ $peminjaman->biaya }}">
               </div>
           </div>
           <div class="form-group row">
               <label for="armada_id" class="col-sm-4 col-form-label">id armada</label>
               <div class="col-sm-8">
-                  <input type="text" class="form-control" id="armada_id" name="armada_id"
+                  <input type="number" class="form-control" id="armada_id" name="armada_id"
                       placeholder="Masukkan id armada" value="{{ $peminjaman->armada_id }}">
               </div>
           </div>

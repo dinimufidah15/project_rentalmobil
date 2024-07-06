@@ -59,12 +59,17 @@
               </li>
               @endif
               @endauth
+              
+              @auth
+              @if (Auth::user()->role == User::ROLE_ADMIN)
               <li class="nav-item">
                 <a href="{{ url('admin/armada') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>armada</p>
                 </a>
               </li>
+              @endif
+              @endauth
               <li class="nav-item">
                 <a href="{{ url('admin/peminjaman') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

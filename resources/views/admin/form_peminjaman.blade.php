@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="card-body">
-        <form class="forms-sample" action="{{ url ('admin/peminjaman/store') }}" method="POST">
+        <form class="forms-sample" action="{{ url('admin/peminjaman/store') }}" method="POST">
           @csrf
           <div class="form-group row">
               <label for="nama_peminjam" class="col-sm-4 col-form-label">nama peminjam</label>
@@ -90,12 +90,12 @@
               </div>
           </div>
           <div class="form-group row">
-              <label for="selesai" class="col-sm-4 col-form-label">selesai</label>
-              <div class="col-sm-8">
-                  <input type="date" class="form-control" id="mulai" name="mulai"
-                      placeholder="tanggal mulai pinjam">
-              </div>
-          </div>
+                <label for="selesai" class="col-sm-4 col-form-label">selesai</label>
+                <div class="col-sm-8">
+                    <input type="date" class="form-control" id="selesai" name="selesai"
+                        placeholder="tanggal selesai pinjam">
+                </div>
+            </div>
           <div class="form-group row">
               <label for="biaya" class="col-sm-4 col-form-label">biaya</label>
               <div class="col-sm-8">
