@@ -50,7 +50,7 @@ class ArmadaController extends Controller
     public function show(string $id)
     {
         $armada = armada::find($id);
-        return view('admin.armada', compact('armada'));
+        return view('admin.detail_armada', compact('armada'));
     }
 
     /**

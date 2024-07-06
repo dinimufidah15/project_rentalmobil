@@ -1,3 +1,4 @@
+@use(App\Models\User)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +54,20 @@
           </form>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            Dini Mufidah
+        </a>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div>
+      </li>
 
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -166,11 +181,14 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('assets/img/njwa.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('assets/img/avatar2.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
+        @auth
         <div class="info">
-          <a href="#" class="d-block">Najwa lutfiyah</a>
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <span class="text-primary">{{ Auth::user()->role }}</span>
         </div>
+        @endauth
       </div>
 
       <!-- SidebarSearch Form -->
@@ -200,6 +218,16 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
+            @auth
+              @if (Auth::user()->role == User::ROLE_ADMIN)
+              <li class="nav-item">
+                <a href="{{ url('admin/jenis_kendaraan')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>jenis kendaraan</p>
+                </a>
+              </li>
+                @endif
+              @endauth
               <li class="nav-item">
                 <a href="{{ url('admin/jenis_kendaraan') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

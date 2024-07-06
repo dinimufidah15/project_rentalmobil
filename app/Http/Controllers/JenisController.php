@@ -44,7 +44,7 @@ class JenisController extends Controller
     public function show(string $id)
     {
         $jenis_kendaraan = jenis_kendaraan::find($id);
-        return view('admin.jenis_kendaraan', compact('jenis_kendaraan'));
+        return view('admin.detail_jenis', compact('jenis_kendaraan'));
     }
 
     /**

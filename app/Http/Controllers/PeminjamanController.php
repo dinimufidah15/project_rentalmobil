@@ -36,7 +36,7 @@ class PeminjamanController extends Controller
         'keperluan_pinjam' => 'required|string',
         'mulai' => 'required|date',
         'selesai' => 'required|date',
-        'biaya' => 'required|numeric',  // Ubah ke numeric untuk menerima nilai desimal
+        'biaya' => 'required|integer',  // Ubah ke numeric untuk menerima nilai desimal
         'armada_id' => 'required|integer',
         'komentar_peminjam' => 'required|string',
         'status_pinjam' => 'required|string',
@@ -53,7 +53,7 @@ class PeminjamanController extends Controller
     public function show(string $id)
     {
         $peminjaman = peminjaman::find($id);
-        return view('admin.peminjaman', compact('peminjaman'));
+        return view('admin.detail_peminjaman', compact('peminjaman'));
     }
 
     /**
@@ -68,16 +68,16 @@ class PeminjamanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id,)
     {
         $validated = $request->validate([
             'nama_peminjam' => 'required|string',
-            'ktp_peminjam' => 'required|string',
+            'ktp_peminjam' => 'required|integer',
             'keperluan_pinjam' => 'required|string',
-            'mulai' => 'required|string',
-            'selesai' => 'required|string',
-            'biaya' => 'required|string',
-            'armada_id' => 'required|string',
+            'mulai' => 'required|date',
+            'selesai' => 'required|date',
+            'biaya' => 'required|integer',
+            'armada_id' => 'required|integer',
             'komentar_peminjam' => 'required|string',
             'status_pinjam' => 'required|string',
         ]);

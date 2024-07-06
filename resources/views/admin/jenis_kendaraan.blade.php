@@ -59,6 +59,14 @@
           </div>
         </div>
         <div class="card-body">
+        @if (session('pesan'))
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>{{ session('pesan') }}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          @endif
         <a href="{{ url('admin/form_jenis/create') }}" class="btn btn-primary">+ tambah kendaraan</a>
          <table class="table table-bordered">
             <tr class="table-success">
@@ -75,6 +83,9 @@
                 <a href="{{ url('admin/jenis_kendaraan/edit', $jenis_kendaraan->id) }}" class="text-primary"><i class="far fa-eye"></i> Edit</a> |
                         <form action="{{ url ('admin/jenis_kendaraan/destroy', $jenis_kendaraan->id) }}" method="post" class="d-inline">
                           @csrf
+                          @method('delete')
+                          <button type="submit" class="btn btn-danger" onclick="return confirm('apakah ingin menghapus data ini?')"><i class="far fa-trash-alt"></i>hapus</button>
+                        </form>
                </tr>
             @endforeach
          </table>

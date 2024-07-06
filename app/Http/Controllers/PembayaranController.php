@@ -46,7 +46,7 @@ class PembayaranController extends Controller
     public function show(string $id)
     {
         $pembayaran =pembayaran::find($id);
-        return view('admin.pembayaran', compact('pembayaran'));
+        return view('admin.detail_pembayaran', compact('pembayaran'));
     }
 
     /**

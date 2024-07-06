@@ -90,7 +90,7 @@
               </div>
           </div>
           <div class="form-group row">
-              <label for="jenis_kendaraan_id" class="col-sm-4 col-form-label">jenis kendaraan</label>
+              <label for="jenis_kendaraan_id" class="col-sm-4 col-form-label">id jenis kendaraan</label>
               <div class="col-sm-8">
                   <input type="text" class="form-control" id="jenis_kendaraan_id" name="jenis_kendaraan_id"
                       placeholder="masukan jenis kendaraan">

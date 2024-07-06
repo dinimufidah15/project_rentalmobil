@@ -59,6 +59,14 @@
           </div>
         </div>
         <div class="card-body">
+        @if (session('pesan'))
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>{{ session('pesan') }}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          @endif
         <a href="{{ url('admin/form_armada/create') }}" class="btn btn-primary">+ tambah armada</a>
          <table class="table table-bordered">
             <tr class="table-success">
@@ -67,7 +75,7 @@
                 <th>nopol</th>
                 <th>tahun beli</th>
                 <th>deskripsi</th>
-                <th>jenis kendaraan</th>
+                <th>id jenis kendaraan</th>
                 <th>kapasitas kursi</th>
                 <th>Rating</th>
                 <th>aksi</th>
@@ -88,6 +96,8 @@
                 <a href="{{ url('admin/armada/edit', $armada->id) }}" class="text-primary"><i class="far fa-eye"></i> Edit</a> |
                         <form action="{{ url ('admin/armada/destroy', $armada->id) }}" method="post" class="d-inline">
                           @csrf
+                          @method('delete')
+                          <button type="submit" class="btn btn-danger" onclick="return confirm('apakah ingin menghapus data ini?')"><i class="far fa-trash-alt"></i>hapus</button>
                </tr>
             @endforeach
          </table>
